@@ -29,7 +29,7 @@ public class Calculator {
 
             }
             System.out.println("사칙연산을 입력하세요");
-            String ao =  scanner.next();
+            char op = scanner.next().charAt(0);
     //        if (ao.equals("+")){
     //            System.out.println("연산결과:" +(c1 + c2));
     //        }
@@ -43,22 +43,24 @@ public class Calculator {
     //            System.out.println("연산결과:" +(c1 / c2));
     //
 
-            switch (ao) {
-                case "+":
+            switch (op) {
+                case '+':
                     System.out.println("연산결과:" + (c1 + c2));
                     break;
-                case "-":
+                case '-':
                     System.out.println("연산결과:" + (c1 - c2));
                     break;
-                case "*", "x", "X":
+                case '*', 'x', 'X':
                     System.out.println("연산결과:" + (c1 * c2));
                     break;
-                case "/":
+                case '/':
                     if (c2 == 0) {
                         System.out.println("나눗셈 연산에서 분모에 0이 입력될 수 없습니다.");
                     }
                     System.out.println("연산결과:" + (c1 / c2));
                     break;
+                    default:
+                        System.out.println("지원하지 않는 연산자 입니다.");
             }
             System.out.println("종료하려면 exit를 입력하세요.");
             bk =  scanner.next();

@@ -28,18 +28,38 @@ public class Calculator {
         }
         System.out.println("사칙연산을 입력하세요");
         String ao =  scanner.next();
-        if (ao.equals("+")){
-            System.out.println("연산결과:" +(c1 + c2));
+//        if (ao.equals("+")){
+//            System.out.println("연산결과:" +(c1 + c2));
+//        }
+//        else if (ao.equals("-")){
+//            System.out.println("연산결과:" +(c1 - c2));
+//        }
+//        else if (ao.equals("*") || ao.equals("x") || ao.equals("X")){
+//            System.out.println("연산결과:" +(c1 * c2));
+//        }
+//        else if (ao.equals("/")){
+//            System.out.println("연산결과:" +(c1 / c2));
+//        }
+        switch (ao){
+            case "+":
+                System.out.println("연산결과:" +(c1 + c2));
+                break;
+            case "-":
+                System.out.println("연산결과:" +(c1 - c2));
+                break;
+            case "*" , "x", "X":
+                System.out.println("연산결과:" +(c1 * c2));
+                break;
+            case "/":
+                if(c2 == 0)
+                {
+                    System.out.println("나눗셈 연산에서 분모에 0이 입력될 수 없습니다.");
+                }
+                System.out.println("연산결과:" +(c1 / c2));
+
+                break;
         }
-        else if (ao.equals("-")){
-            System.out.println("연산결과:" +(c1 - c2));
-        }
-        else if (ao.equals("*") || ao.equals("x") || ao.equals("X")){
-            System.out.println("연산결과:" +(c1 * c2));
-        }
-        else if (ao.equals("/")){
-            System.out.println("연산결과:" +(c1 / c2));
-        }
+
     }
 
 

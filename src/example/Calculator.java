@@ -9,6 +9,7 @@ public class Calculator {
         Scanner scanner = new Scanner(System.in);
         int c1, c2 = 0;
         String bk = "";
+        //exit를 입력할때 까지 무한 루프
         while(!bk.equals("exit")) {
             while(true){
                 System.out.println("첫 번째 숫자를 입력하세요.");
@@ -60,7 +61,7 @@ public class Calculator {
                     System.out.println("연산결과:" + (c1 / c2));
                     break;
                     default:
-                        System.out.println("지원하지 않는 연산자 입니다.");
+                        System.out.println("지원하지 않는 연산자 입니다.");//case이외의 문자 입력시
             }
             System.out.println("종료하려면 exit를 입력하세요.");
             bk =  scanner.next();

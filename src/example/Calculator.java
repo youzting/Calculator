@@ -3,6 +3,9 @@ import java.util.ArrayList;
 
 
 public class Calculator {
+
+    ArrayList<Integer> results = new ArrayList<>();
+
     public int calculator(int n1,int n2, char op) {
       int result = 0;
 
@@ -25,6 +28,7 @@ public class Calculator {
           default:
               System.out.println("지원하지 않는 연산자");
       }
+        results.add(result);
         return result;
     }
 

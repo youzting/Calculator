@@ -2,6 +2,8 @@ package example;
 
 import java.util.Scanner;
 
+
+
 public class App {
     public static void main(String[] args) {
         Calculator cal = new Calculator();
@@ -32,7 +34,8 @@ public class App {
             }
             System.out.println("사칙연산을 입력하세요");
             char op = scanner.next().charAt(0);
-            int result = cal.calculator(c1, c2, op);
+            OperatorType opt = OperatorType.getOT(op);
+            int result = cal.calculator(c1, c2, opt);
             System.out.println("연산결과:" + result);
 
 

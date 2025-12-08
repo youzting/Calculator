@@ -1,5 +1,7 @@
 package example;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -10,7 +12,10 @@ public class App {
         Scanner scanner = new Scanner(System.in);
 
         double c1, c2 = 0;
+        System.out.println("기준값을 입력하세요");
+        double jo =  scanner.nextDouble();
         String bk = "";
+
 
         //exit입력시 루프 탈출
         while(!bk.equals("exit")) {
@@ -48,6 +53,12 @@ public class App {
                 cal.removeResults(result); //인덱스 삭제
                 System.out.println("삭제 결과"+ cal.getResults());
             }
+            System.out.println("기준값보다 큰 결과 값을 출력");
+
+            List<Double> bigger  = cal.getResults().stream()
+                    .filter(r -> r > jo).toList();
+            System.out.println(bigger);
+
             System.out.println("종료하려면 exit를 입력하세요.");
             bk =  scanner.next();
         }

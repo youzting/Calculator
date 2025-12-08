@@ -22,7 +22,7 @@ enum OperatorType{
         throw new IllegalArgumentException("지원하지 않는 연산자: " + operator);//예외처리
     }
 }
-//extends Number(Number클래스 사용-상한 경계)
+//extends Number(상속)
 public class Calculator<T extends Number> {
     private ArrayList<Double> results = new ArrayList<>();
 

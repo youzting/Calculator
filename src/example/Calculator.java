@@ -22,43 +22,45 @@ enum OperatorType{
         throw new IllegalArgumentException("지원하지 않는 연산자: " + operator);//예외처리
     }
 }
-public class Calculator {
+//extends Number(Number클래스 사용-상한 경계)
+public class Calculator<T extends Number> {
+    private ArrayList<Double> results = new ArrayList<>();
 
-    private ArrayList<Integer> results = new ArrayList<>();//컬렉션 타입 선언
 
-
-    public ArrayList<Integer> getResults(){
+    //조회
+    public ArrayList<Double> getResults(){
         return results;
     }
-    public void setResults(ArrayList<Integer> results){
+    //저장
+    public void setResults(ArrayList<Double> results){
         this.results = results;
     }
-    public void removeResults(int result){
+    //첫 번째 값 삭제
+    public void removeResults(double result){
 
         results.remove(0);
     }
-    public int calculator(int n1,int n2, OperatorType op) {
-      int result = 0;
-
+    public double calculator(T n1,T n2, OperatorType op) {
+      double a= n1.doubleValue();//n1을 double로 변환
+      double b= n2.doubleValue();
+      double result = 0;
 
       switch (op) {
           case plus:
-              result = n1 + n2;
+              result = a + b;
               break;
           case sub:
-              result = n1 - n2;
+              result = a - b;
               break;
           case mul:
-              result = n1 * n2;
+              result = a * b;
               break;
           case div:
-              if(n2 == 0){
+              if(b == 0){
                   System.out.println("0으로 나눌 수 없습니다.");
               }
-              result = n1 / n2;
+              result = a / b;
               break;
-          default:
-              System.out.println("지원하지 않는 연산자");//case이외의 문자 입력시
       }
         results.add(result);//컬렉션에 result 값 저장
         return result;

@@ -6,9 +6,10 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        Calculator cal = new Calculator();
+        Calculator<Double> cal = new Calculator<>();//제네릭 Double타입 인스턴스화
         Scanner scanner = new Scanner(System.in);
-        int c1, c2 = 0;
+
+        double c1, c2 = 0;
         String bk = "";
 
         //exit입력시 루프 탈출
@@ -16,7 +17,7 @@ public class App {
             //0보다 클때 입력
             while (true) {
                 System.out.println("첫 번째 숫자를 입력하세요.");
-                c1 = scanner.nextInt();
+                c1 = scanner.nextDouble();
                 if (c1 >= 0) {
                     break;
                 }
@@ -25,7 +26,7 @@ public class App {
             }
             while (true) {
                 System.out.println("두 번째 숫자를 입력하세요.");
-                c2 = scanner.nextInt();
+                c2 = scanner.nextDouble();
                 if (c2 >= 0) {
                     break;
                 }
@@ -33,9 +34,10 @@ public class App {
 
             }
             System.out.println("사칙연산을 입력하세요");
-            char op = scanner.next().charAt(0);
+            char op = scanner.next().charAt(0);//첫 번째 문자 추출-연산 기호 중복 입력 방지
             OperatorType opt = OperatorType.getOT(op);
-            int result = cal.calculator(c1, c2, opt);
+
+            double result = cal.calculator(c1, c2, opt);
             System.out.println("연산결과:" + result);
 
 
